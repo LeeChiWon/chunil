@@ -27,11 +27,27 @@ public:
     FileThread *fileThread;
     QSqlDatabase LocalDB;
     ConfigDialog *configDialog;
+    QTranslator Translator;
+
+    void TableWidgetInit();
+
+signals:
+    void Retranslator();
 
 private slots:
     void on_actionConfig_triggered();
     void LocalDBInit();
 
+    void on_pushButton_Add_clicked();
+
+    void on_pushButton_Delete_clicked();
+
+    void on_pushButton_Path_clicked();
+
+    void on_actionStart_triggered();
+
+    void on_actionStop_triggered();
+    void LanguageChange(int LanguageSelect);
 private:
 
 };
