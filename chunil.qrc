@@ -3,5 +3,13 @@
         <file>Img/File.png</file>
         <file>Img/NoFile.png</file>
         <file>Img/Main.png</file>
+        <file>Img/Add.png</file>
+        <file>Img/Delete.png</file>
+        <file>Img/Folder.png</file>
+    </qresource>
+    <qresource prefix="/Language">
+        <file>Lang_en_US.qm</file>
+        <file>Lang_es_MX.qm</file>
+        <file>Lang_ko_KR.qm</file>
     </qresource>
 </RCC>

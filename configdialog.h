@@ -25,8 +25,12 @@ public:
 
 signals:
     void LocalDBInit();
+    void AutoStart();
+    void LanguageChanged(int LanguageSelect);
+
 private slots:
     void on_buttonBox_clicked(QAbstractButton *button);
+    void Retranslator();
 
 private:
     Ui::ConfigDialog *ui;
