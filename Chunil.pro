@@ -6,6 +6,10 @@
 
 QT       += core gui network sql
 
+TRANSLATIONS += Lang_ko_KR.ts\
+                Lang_en_US.ts\
+                Lang_es_MX.ts
+
 #CONFIG += console
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets

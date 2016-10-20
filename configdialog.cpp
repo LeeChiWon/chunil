@@ -11,6 +11,7 @@ ConfigDialog::ConfigDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(this,SIGNAL(LocalDBInit()),pMain,SLOT(LocalDBInit()));
+    connect(this,SIGNAL(AutoStart()),pMain,SLOT(on_actionStart_triggered()));
     ConfigDataLoad();
 }
 
@@ -52,6 +53,7 @@ void ConfigDialog::ConfigDataSave()
 
 void ConfigDialog::ConfigDataLoad()
 {
+    int RowCount=0;
     try
     {
         LocalDB=QSqlDatabase::database("LocalDB");
@@ -75,6 +77,15 @@ void ConfigDialog::ConfigDataLoad()
             ui->lineEdit_UserName->setText(LocalDBQuery.value("username").toString());
             ui->lineEdit_Password->setText(LocalDBQuery.value("password").toString());
             ui->checkBox_AutoStart->setChecked(LocalDBQuery.value("autostart").toInt());
+
+            connect(this,SIGNAL(LanguageChanged(int)),pMain,SLOT(LanguageChange(int)));
+            emit LanguageChanged(LocalDBQuery.value("language").toInt());
+            disconnect(this,SIGNAL(LanguageChanged(int)),pMain,0);
+        }
+
+        if(ui->checkBox_AutoStart->isChecked())
+        {
+            emit AutoStart();
         }
 
         LocalDBQuery.exec("select * from machine_setting");
@@ -83,6 +94,10 @@ void ConfigDialog::ConfigDataLoad()
            QTableWidgetItem *TableWidgetItem=new QTableWidgetItem();
            TableWidgetItem->setIcon(QIcon(":/Img/NoFile.png"));
            TableWidgetItem->setTextAlignment(Qt::AlignCenter);
+           pMain->ui->tableWidget_MachineInfo->setIconSize(QSize(25,25));
+           pMain->ui->tableWidget_MachineInfo->setItem(RowCount,0,new QTableWidgetItem(LocalDBQuery.value("machinename").toString()));
+           pMain->ui->tableWidget_MachineInfo->setItem(RowCount,1,new QTableWidgetItem(LocalDBQuery.value("directorypath").toString()));
+           pMain->ui->tableWidget_MachineInfo->setItem(RowCount++,2,TableWidgetItem);
            //TableWidgetItem->setText(tr(""));
         }
     }
@@ -104,4 +119,9 @@ void ConfigDialog::on_buttonBox_clicked(QAbstractButton *button)
         this->close();
         break;
     }
+}
+
+void ConfigDialog::Retranslator()
+{
+    ui->retranslateUi(this);
 }
