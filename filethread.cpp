@@ -1,6 +1,6 @@
 #include "filethread.h"
 
-FileThread::FileThread(QThread *parent) : QObject(parent)
+FileThread::FileThread(QObject *parent) : QThread(parent)
 {
 
 }

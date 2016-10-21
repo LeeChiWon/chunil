@@ -54,7 +54,6 @@ void ConfigDialog::ConfigDataSave()
 
 void ConfigDialog::ConfigDataLoad()
 {
-    int RowCount=0;
     try
     {
         LocalDB=QSqlDatabase::database("LocalDB");
