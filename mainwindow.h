@@ -28,8 +28,11 @@ public:
     QSqlDatabase LocalDB;
     ConfigDialog *configDialog;
     QTranslator Translator;
+    QMap<QString,QLabel*> TableWidgetLabelMap;
 
     void TableWidgetInit();
+    void TableWidgetDelete();
+    void TableWidgetDB(int Select);
 
 signals:
     void Retranslator();
@@ -48,6 +51,16 @@ private slots:
 
     void on_actionStop_triggered();
     void LanguageChange(int LanguageSelect);
+    void TabelWidgetAdd(QString MachineName,QString Path);
+
+    void on_tableWidget_MachineInfo_itemClicked(QTableWidgetItem *item);
+
+    void on_actionKorean_triggered();
+
+    void on_actionEnglish_triggered();
+
+    void on_actionEspanol_triggered();
+
 private:
 
 };

@@ -12,6 +12,7 @@ ConfigDialog::ConfigDialog(QWidget *parent) :
     ui->setupUi(this);
     connect(this,SIGNAL(LocalDBInit()),pMain,SLOT(LocalDBInit()));
     connect(this,SIGNAL(AutoStart()),pMain,SLOT(on_actionStart_triggered()));
+    connect(pMain,SIGNAL(Retranslator()),this,SLOT(Retranslator()));
     ConfigDataLoad();
 }
 
@@ -81,6 +82,7 @@ void ConfigDialog::ConfigDataLoad()
             connect(this,SIGNAL(LanguageChanged(int)),pMain,SLOT(LanguageChange(int)));
             emit LanguageChanged(LocalDBQuery.value("language").toInt());
             disconnect(this,SIGNAL(LanguageChanged(int)),pMain,0);
+            Retranslator();
         }
 
         if(ui->checkBox_AutoStart->isChecked())
@@ -91,13 +93,19 @@ void ConfigDialog::ConfigDataLoad()
         LocalDBQuery.exec("select * from machine_setting");
         while(LocalDBQuery.next())
         {
-           QTableWidgetItem *TableWidgetItem=new QTableWidgetItem();
+           /*QTableWidgetItem *TableWidgetItem=new QTableWidgetItem();
            TableWidgetItem->setIcon(QIcon(":/Img/NoFile.png"));
-           TableWidgetItem->setTextAlignment(Qt::AlignCenter);
-           pMain->ui->tableWidget_MachineInfo->setIconSize(QSize(25,25));
+           TableWidgetItem->setTextAlignment(Qt::AlignCenter);    */
+
+           QLabel *label=new QLabel();
+           label->setPixmap(QPixmap(":/Img/NoFile.png"));
+           label->setText(tr("Not File"));
+           pMain->TableWidgetLabelMap.insert(LocalDBQuery.value("machinename").toString(),label);
            pMain->ui->tableWidget_MachineInfo->setItem(RowCount,0,new QTableWidgetItem(LocalDBQuery.value("machinename").toString()));
            pMain->ui->tableWidget_MachineInfo->setItem(RowCount,1,new QTableWidgetItem(LocalDBQuery.value("directorypath").toString()));
-           pMain->ui->tableWidget_MachineInfo->setItem(RowCount++,2,TableWidgetItem);
+           pMain->ui->tableWidget_MachineInfo->setCellWidget(RowCount,2,label);
+
+           //pMain->ui->tableWidget_MachineInfo->setItem(RowCount++,2,TableWidgetItem);
            //TableWidgetItem->setText(tr(""));
         }
     }
