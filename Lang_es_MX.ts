@@ -54,27 +54,26 @@
         <translation>autoencendido</translation>
     </message>
     <message>
-        <location filename="configdialog.cpp" line="28"/>
+        <location filename="configdialog.cpp" line="29"/>
         <source>Warning</source>
         <translation>advertencia</translation>
     </message>
     <message>
-        <location filename="configdialog.cpp" line="28"/>
+        <location filename="configdialog.cpp" line="29"/>
         <source>Setting is empty.</source>
         <translation>conjunto está vacío.</translation>
     </message>
     <message>
-        <location filename="configdialog.cpp" line="45"/>
+        <location filename="configdialog.cpp" line="46"/>
         <source>Info</source>
         <translation>Info</translation>
     </message>
     <message>
-        <location filename="configdialog.cpp" line="45"/>
+        <location filename="configdialog.cpp" line="46"/>
         <source>Setting Saved.</source>
         <translation>conjunto guardado.</translation>
     </message>
     <message>
-        <location filename="configdialog.cpp" line="101"/>
         <source>Not File</source>
         <translation>no presente</translation>
     </message>
@@ -87,102 +86,102 @@
         <translation>ChunilEngineering</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="77"/>
+        <location filename="mainwindow.ui" line="83"/>
         <source>기계이름</source>
         <translation>Nombre de la máquina</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="87"/>
+        <location filename="mainwindow.ui" line="93"/>
         <source>경로</source>
         <translation>Camino</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="110"/>
+        <location filename="mainwindow.ui" line="116"/>
         <source>추가</source>
         <translation>Añadir</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="136"/>
+        <location filename="mainwindow.ui" line="142"/>
         <source>삭제</source>
         <translation>Borrar</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="191"/>
+        <location filename="mainwindow.ui" line="197"/>
         <source>메뉴</source>
         <translation>Menú</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="195"/>
+        <location filename="mainwindow.ui" line="201"/>
         <source>언어선택</source>
         <translation>Idioma</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="220"/>
+        <location filename="mainwindow.ui" line="226"/>
         <source>시작</source>
         <translation>comienzo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="223"/>
+        <location filename="mainwindow.ui" line="229"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="231"/>
+        <location filename="mainwindow.ui" line="237"/>
         <source>정지</source>
         <translation>Detener</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="234"/>
+        <location filename="mainwindow.ui" line="240"/>
         <source>Ctrl+P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="239"/>
+        <location filename="mainwindow.ui" line="245"/>
         <source>환경설정</source>
         <translation>Configuración</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="242"/>
+        <location filename="mainwindow.ui" line="248"/>
         <source>Ctrl+C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="247"/>
+        <location filename="mainwindow.ui" line="253"/>
         <source>종료</source>
         <translation>Salida</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="250"/>
+        <location filename="mainwindow.ui" line="256"/>
         <source>Ctrl+X</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="255"/>
+        <location filename="mainwindow.ui" line="261"/>
         <source>한국어</source>
         <translation>한국어</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="258"/>
+        <location filename="mainwindow.ui" line="264"/>
         <source>Ctrl+K</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="263"/>
+        <location filename="mainwindow.ui" line="269"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="266"/>
+        <location filename="mainwindow.ui" line="272"/>
         <source>Ctrl+E</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="271"/>
+        <location filename="mainwindow.ui" line="277"/>
         <source>español </source>
         <translation>español</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="274"/>
+        <location filename="mainwindow.ui" line="280"/>
         <source>Ctrl+N</source>
         <translation></translation>
     </message>
@@ -215,13 +214,13 @@
     <message>
         <location filename="mainwindow.cpp" line="70"/>
         <location filename="mainwindow.cpp" line="78"/>
-        <location filename="mainwindow.cpp" line="89"/>
+        <location filename="mainwindow.cpp" line="90"/>
         <source>Warning</source>
         <translation>Advertencia</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="70"/>
-        <location filename="mainwindow.cpp" line="89"/>
+        <location filename="mainwindow.cpp" line="90"/>
         <source>MachineName or Path is empty.</source>
         <translation>Máquina nombre o la ruta está vacía.</translation>
     </message>
@@ -231,14 +230,24 @@
         <translation>Nombre de la máquina es el mismo.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="97"/>
+        <location filename="mainwindow.cpp" line="99"/>
         <source>Open Directory</source>
         <translation>Directorio abierto</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="167"/>
+        <location filename="mainwindow.cpp" line="171"/>
         <source>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; Not File&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; no Declararán&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="241"/>
+        <source>Close Confirmation?</source>
+        <translation>Cerrar la Confirmación?</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="242"/>
+        <source>Are you sure you want to exit?</source>
+        <translation>¿Seguro que quieres salir?</translation>
     </message>
 </context>
 </TS>

@@ -26,6 +26,8 @@ void MainWindow::TableWidgetInit()
     MachineLabel<<tr("MachineName")<<tr("DirectoryPath")<<tr("Status");
     ui->tableWidget_Community->setHorizontalHeaderLabels(CommunityLabel);
     ui->tableWidget_MachineInfo->setHorizontalHeaderLabels(MachineLabel);
+    ui->tableWidget_MachineInfo->resizeColumnsToContents();
+    ui->tableWidget_Community->resizeColumnsToContents();
 }
 
 void MainWindow::on_actionConfig_triggered()
@@ -80,6 +82,7 @@ void MainWindow::on_pushButton_Add_clicked()
         }
     }
     TabelWidgetAdd(ui->lineEdit_MachineName->text(),ui->lineEdit_Path->text());
+    TableWidgetDB(DB_ADD);
 }
 
 void MainWindow::on_pushButton_Delete_clicked()
@@ -90,6 +93,7 @@ void MainWindow::on_pushButton_Delete_clicked()
         return;
     }
     TableWidgetDelete();
+    TableWidgetDB(DB_DELETE);
 }
 
 void MainWindow::on_pushButton_Path_clicked()
@@ -198,13 +202,13 @@ void MainWindow::TableWidgetDB(int Select)
         switch(Select)
         {
         case DB_ADD:
-            //LocalDBQuery.exec(QString("insert into machine_setting =%1").arg(LanguageSelect));
+            LocalDBQuery.exec(QString("insert into machine_setting(machinename,directorypath) values('%1','%2')").arg(ui->lineEdit_MachineName->text(),ui->lineEdit_Path->text()));
             break;
         case DB_DELETE:
+            LocalDBQuery.exec(QString("delete from machine_setting where machinename='%1'").arg(ui->lineEdit_MachineName->text()));
             break;
         }
-
-
+        qDebug()<<LocalDBQuery.lastError();
     }
     catch(QException &e)
     {
@@ -231,4 +235,15 @@ void MainWindow::on_actionEnglish_triggered()
 void MainWindow::on_actionEspanol_triggered()
 {
     LanguageChange(ESPANOL);
+}
+
+void MainWindow::closeEvent ( QCloseEvent * event )
+{
+    event->ignore();
+    if (QMessageBox::Yes == QMessageBox::question(this, tr("Close Confirmation?"),
+                                                  tr("Are you sure you want to exit?"),
+                                                  QMessageBox::Yes|QMessageBox::No))
+    {
+        event->accept();
+    }
 }

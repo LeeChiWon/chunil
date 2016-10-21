@@ -91,23 +91,12 @@ void ConfigDialog::ConfigDataLoad()
         }
 
         LocalDBQuery.exec("select * from machine_setting");
+        connect(this,SIGNAL(TableWidgetAdd(QString,QString)),pMain,SLOT(TabelWidgetAdd(QString,QString)));
         while(LocalDBQuery.next())
         {
-           /*QTableWidgetItem *TableWidgetItem=new QTableWidgetItem();
-           TableWidgetItem->setIcon(QIcon(":/Img/NoFile.png"));
-           TableWidgetItem->setTextAlignment(Qt::AlignCenter);    */
-
-           QLabel *label=new QLabel();
-           label->setPixmap(QPixmap(":/Img/NoFile.png"));
-           label->setText(tr("Not File"));
-           pMain->TableWidgetLabelMap.insert(LocalDBQuery.value("machinename").toString(),label);
-           pMain->ui->tableWidget_MachineInfo->setItem(RowCount,0,new QTableWidgetItem(LocalDBQuery.value("machinename").toString()));
-           pMain->ui->tableWidget_MachineInfo->setItem(RowCount,1,new QTableWidgetItem(LocalDBQuery.value("directorypath").toString()));
-           pMain->ui->tableWidget_MachineInfo->setCellWidget(RowCount,2,label);
-
-           //pMain->ui->tableWidget_MachineInfo->setItem(RowCount++,2,TableWidgetItem);
-           //TableWidgetItem->setText(tr(""));
+           emit TableWidgetAdd(LocalDBQuery.value("machinename").toString(),LocalDBQuery.value("directorypath").toString());
         }
+        disconnect(this,SIGNAL(TableWidgetAdd(QString,QString)),pMain,0);
     }
 
     catch(QException &e)
