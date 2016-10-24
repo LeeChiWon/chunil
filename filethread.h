@@ -4,6 +4,9 @@
 #include <QObject>
 #include <QThread>
 #include <QtWidgets>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
 
 class FileThread : public QThread
 {
@@ -17,11 +20,14 @@ public:
     QString MachineName;
     bool ExistFile;
     QDateTime FileModifyDateTime;
+    QSqlDatabase RemoteDB;
 
     void FileRead();
+    void RemoteDBSet();
+    void DBSave(QStringList Context);
 
 signals:
-    void UpdateCommunity(QString MachineName,QString Context);
+    void UpdateCommunity(QString MachineName,QString Context);    
 public slots:
     void Timeout();
 protected:
