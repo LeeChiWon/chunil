@@ -29,6 +29,7 @@ public:
     ConfigDialog *configDialog;
     QTranslator Translator;
     QMap<QString,QLabel*> TableWidgetLabelMap;
+    QMap<QString,QThread*> FileThreadMap;
 
     void TableWidgetInit();
     void TableWidgetDelete();
@@ -40,27 +41,19 @@ signals:
 private slots:
     void on_actionConfig_triggered();
     void LocalDBInit();
-
     void on_pushButton_Add_clicked();
-
     void on_pushButton_Delete_clicked();
-
-    void on_pushButton_Path_clicked();
-
-    void on_actionStart_triggered();
-
-    void on_actionStop_triggered();
+    void on_pushButton_Path_clicked(); 
     void LanguageChange(int LanguageSelect);
     void TabelWidgetAdd(QString MachineName,QString Path);
-
     void on_tableWidget_MachineInfo_itemClicked(QTableWidgetItem *item);
-
     void on_actionKorean_triggered();
-
     void on_actionEnglish_triggered();
-
     void on_actionEspanol_triggered();
     void closeEvent(QCloseEvent *event);
+    void on_actionStart_triggered();
+    void on_actionStop_triggered();
+    void UpdateCommunity(QString MachineName,QString Context);
 
 private:
 

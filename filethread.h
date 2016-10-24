@@ -11,9 +11,19 @@ class FileThread : public QThread
 public:
     explicit FileThread(QObject *parent = 0);
     ~FileThread();
-signals:
 
+    QTimer *ThreadTimer;
+    QString FilePath;
+    QString MachineName;
+    bool ExistFile;
+    QDateTime FileModifyDateTime;
+
+    void FileRead();
+
+signals:
+    void UpdateCommunity(QString MachineName,QString Context);
 public slots:
+    void Timeout();
 protected:
     void run();
 };

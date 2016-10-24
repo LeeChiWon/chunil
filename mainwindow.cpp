@@ -49,7 +49,6 @@ void MainWindow::LocalDBInit()
 
         if(!LocalDB.open())
         {
-            qDebug()<<"DB is not open.";
             return;
         }
 
@@ -94,6 +93,11 @@ void MainWindow::on_pushButton_Delete_clicked()
     }
     TableWidgetDelete();
     TableWidgetDB(DB_DELETE);
+
+    if(FileThreadMap.contains(ui->lineEdit_MachineName->text()))
+    {
+        FileThreadMap.remove(ui->lineEdit_MachineName->text());
+    }
 }
 
 void MainWindow::on_pushButton_Path_clicked()
@@ -104,29 +108,6 @@ void MainWindow::on_pushButton_Path_clicked()
                                                     | QFileDialog::DontResolveSymlinks);
     ui->lineEdit_Path->setText(dir);
 }
-
-void MainWindow::on_actionStart_triggered()
-{
-    ui->actionStart->setEnabled(false);
-    ui->actionStop->setEnabled(true);
-    ui->pushButton_Add->setEnabled(false);
-    ui->pushButton_Delete->setEnabled(false);
-    ui->pushButton_Path->setEnabled(false);
-    ui->lineEdit_MachineName->setEnabled(false);
-    ui->actionConfig->setEnabled(false);
-}
-
-void MainWindow::on_actionStop_triggered()
-{
-    ui->actionStart->setEnabled(true);
-    ui->actionStop->setEnabled(false);
-    ui->pushButton_Add->setEnabled(true);
-    ui->pushButton_Delete->setEnabled(true);
-    ui->pushButton_Path->setEnabled(true);
-    ui->lineEdit_MachineName->setEnabled(true);
-    ui->actionConfig->setEnabled(true);
-}
-
 
 void MainWindow::LanguageChange(int LanguageSelect)
 {
@@ -208,7 +189,6 @@ void MainWindow::TableWidgetDB(int Select)
             LocalDBQuery.exec(QString("delete from machine_setting where machinename='%1'").arg(ui->lineEdit_MachineName->text()));
             break;
         }
-        qDebug()<<LocalDBQuery.lastError();
     }
     catch(QException &e)
     {
@@ -246,4 +226,56 @@ void MainWindow::closeEvent ( QCloseEvent * event )
     {
         event->accept();
     }
+}
+
+void MainWindow::on_actionStart_triggered()
+{
+    for(int i=0; i<ui->tableWidget_MachineInfo->rowCount(); i++)
+    {
+        fileThread=new FileThread();
+        connect(fileThread,SIGNAL(finished()),fileThread,SLOT(deleteLater()));
+        connect(fileThread,SIGNAL(UpdateCommunity(QString,QString)),this,SLOT(UpdateCommunity(QString,QString)));
+        fileThread->FilePath=ui->tableWidget_MachineInfo->item(i,1)->text();
+        fileThread->MachineName=ui->tableWidget_MachineInfo->item(i,0)->text();
+        FileThreadMap.insert(ui->tableWidget_MachineInfo->item(i,0)->text(),fileThread);
+        fileThread->start();
+    }
+
+    ui->actionStart->setEnabled(false);
+    ui->actionStop->setEnabled(true);
+    ui->pushButton_Add->setEnabled(false);
+    ui->pushButton_Delete->setEnabled(false);
+    ui->pushButton_Path->setEnabled(false);
+    ui->lineEdit_MachineName->setEnabled(false);
+    ui->actionConfig->setEnabled(false);
+}
+
+void MainWindow::on_actionStop_triggered()
+{
+    for(int i=0; i<FileThreadMap.size(); i++)
+    {
+        if(FileThreadMap.value(ui->tableWidget_MachineInfo->item(i,0)->text())->isRunning())
+        {
+            FileThreadMap.value(ui->tableWidget_MachineInfo->item(i,0)->text())->quit();
+        }
+    }
+    FileThreadMap.clear();
+    fileThread=NULL;
+
+    ui->actionStart->setEnabled(true);
+    ui->actionStop->setEnabled(false);
+    ui->pushButton_Add->setEnabled(true);
+    ui->pushButton_Delete->setEnabled(true);
+    ui->pushButton_Path->setEnabled(true);
+    ui->lineEdit_MachineName->setEnabled(true);
+    ui->actionConfig->setEnabled(true);
+}
+
+void MainWindow::UpdateCommunity(QString MachineName,QString Context)
+{
+    ui->tableWidget_Community->setRowCount(ui->tableWidget_Community->rowCount()+1);
+    ui->tableWidget_Community->setItem(ui->tableWidget_Community->rowCount()-1,1,new QTableWidgetItem(MachineName));
+    ui->tableWidget_Community->setItem(ui->tableWidget_Community->rowCount()-1,0,new QTableWidgetItem(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
+    ui->tableWidget_Community->setItem(ui->tableWidget_Community->rowCount()-1,2,new QTableWidgetItem(Context));
+    ui->tableWidget_Community->resizeColumnsToContents();
 }
