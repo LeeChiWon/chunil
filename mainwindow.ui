@@ -14,7 +14,7 @@
    <string>천일엔지니어링</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="chunil.qrc">
     <normaloff>:/Img/Img/Main.png</normaloff>:/Img/Img/Main.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -55,6 +55,9 @@
     </item>
     <item row="2" column="0">
      <widget class="QTableWidget" name="tableWidget_Community">
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
       <property name="selectionMode">
        <enum>QAbstractItemView::ExtendedSelection</enum>
       </property>
@@ -119,7 +122,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="chunil.qrc">
           <normaloff>:/Img/Img/Add.png</normaloff>:/Img/Img/Add.png</iconset>
         </property>
         <property name="iconSize">
@@ -145,7 +148,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="chunil.qrc">
           <normaloff>:/Img/Img/Delete.png</normaloff>:/Img/Img/Delete.png</iconset>
         </property>
         <property name="iconSize">
@@ -168,7 +171,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="chunil.qrc">
           <normaloff>:/Img/Img/Folder.png</normaloff>:/Img/Img/Folder.png</iconset>
         </property>
         <property name="iconSize">
@@ -282,6 +285,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="chunil.qrc"/>
+ </resources>
  <connections/>
 </ui>

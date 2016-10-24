@@ -65,7 +65,6 @@ void ConfigDialog::ConfigDataLoad()
             LocalDB=QSqlDatabase::database("LocalDB");
         }
 
-
         QSqlQuery LocalDBQuery(LocalDB);
         LocalDBQuery.exec("select * from general_setting");
         if(LocalDBQuery.next())

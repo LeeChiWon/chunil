@@ -5,6 +5,7 @@
 #include <QtWidgets>
 #include "filethread.h"
 #include "configdialog.h"
+#include "ui_configdialog.h"
 #include "define.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -26,6 +27,7 @@ public:
 
     FileThread *fileThread;
     QSqlDatabase LocalDB;
+    QSqlDatabase RemoteDB;
     ConfigDialog *configDialog;
     QTranslator Translator;
     QMap<QString,QLabel*> TableWidgetLabelMap;
@@ -41,6 +43,7 @@ signals:
 private slots:
     void on_actionConfig_triggered();
     void LocalDBInit();
+    void RemoteDBInit();
     void on_pushButton_Add_clicked();
     void on_pushButton_Delete_clicked();
     void on_pushButton_Path_clicked(); 
@@ -54,7 +57,6 @@ private slots:
     void on_actionStart_triggered();
     void on_actionStop_triggered();
     void UpdateCommunity(QString MachineName,QString Context);
-
     void on_actionExit_triggered();
 
 private:

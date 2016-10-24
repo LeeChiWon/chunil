@@ -10,8 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     pMain=this;
-    LocalDBInit();
+    LocalDBInit();   
     configDialog=new ConfigDialog();
+    RemoteDBInit();
 }
 
 MainWindow::~MainWindow()
@@ -57,6 +58,51 @@ void MainWindow::LocalDBInit()
         LocalDBQuery.exec("create table if not exists general_setting (dbip text,dbport text,dbname text,tablename text,username text,password text,language int,autostart int);");
         LocalDBQuery.exec("insert into general_setting(dbip,dbport,dbname,tablename,username,password,language,autostart) select '127.0.0.1','1433','chunil','shot_data','cms','cms',0,0 where not exists (select * from general_setting);");
         LocalDBQuery.exec("create table if not exists machine_setting (machinename text,directorypath text);");
+    }
+    catch(QException &e)
+    {
+        qDebug()<<e.what();
+    }
+}
+
+void MainWindow::RemoteDBInit()
+{
+    try
+    {
+        QSqlDatabase::removeDatabase("RemoteDB");
+        RemoteDB=QSqlDatabase::addDatabase("QODBC","RemoteDB");
+        RemoteDB.setDatabaseName(configDialog->ui->lineEdit_DBName->text());
+        RemoteDB.setHostName(configDialog->ui->lineEdit_DBIP->text());
+        RemoteDB.setPort(configDialog->ui->lineEdit_DBPort->text().toInt());
+        RemoteDB.setUserName(configDialog->ui->lineEdit_UserName->text());
+        RemoteDB.setPassword(configDialog->ui->lineEdit_Password->text());
+
+        if(!RemoteDB.open())
+        {
+            qDebug()<<RemoteDB.lastError();
+            return;
+        }
+
+        QSqlQuery RemoteDBQuery(RemoteDB);
+        RemoteDBQuery.exec("if not exists (select * from information_schema.tables where table_name='Shot_data') create table Shot_data"
+                           "(idx numeric(9) identity(1,1) not null primary key,Machine_Name varchar(32),Additional_Info_1 varchar(32),Additional_Info_2 varchar(32),TimeStamp datetime,Shot_Number numeric(9),"
+                           "NGmark smallint,Injection_Time real,Filling_Time real,Plasticizing_Time real,Cycle_Time real,Clamp_Close_Time real,Cushion_Position real,Switch_Over_Position real,Plasticizing_Position real,"
+                           "Clamp_Open_Position real,Max_Injection_Speed real,Max_Screw_RPM real,Average_Screw_RPM real,Max_Injection_Pressure real,Max_Switch_Over_Pressure real,Max_Back_Pressure real,Average_Back_Pressure real,"
+                           "Barrel_Temperature_1 real,Barrel_Temperature_2 real,Barrel_Temperature_3 real,Barrel_Temperature_4 real,Barrel_Temperature_5 real,Barrel_Temperature_6 real,Barrel_Temperature_7 real,Hopper_Temperature real,"
+                           "Mold_Temperature_1 real,Mold_Temperature_2 real, Mold_Temperature_3 real,Mold_Temperature_4 real,Mold_Temperature_5 real,Mold_Temperature_6 real,Mold_Temperature_7 real,Mold_Temperature_8 real,Mold_Temperature_9 real,Mold_Temperature_10 real)");
+
+       /* RemoteDBQuery.exec("create table if not exists Shot_data (idx numeric(9),Machine_Name varchar(32),Additional_Info_1 varchar(32),Additional_Info_2 varchar(32),TimeStamp datetime,Shot_Number numeric(9),"
+                           "NGmark smallint,Injection_Time real,Filling_Time real,Plasticizing_Time real,Cycle_Time real,Clamp_Close_Time real,Cushion_Position real,Switch_Over_Position real,Plasticizing_Position real,"
+                           "Clamp_Open_Position real,Max_Injection_Speed real,Max_Screw_RPM real,Average_Screw_RPM real,Max_Injection_Pressure real,Max_Switch_Over_Pressure real,Max_Back_Pressure real,Average_Back_Pressure real,"
+                           "Barrel_Temperature_1 real,Barrel_Temperature_2 real,Barrel_Temperature_3 real,Barrel_Temperature_4 real,Barrel_Temperature_5 real,Barrel_Temperature_6 real,Barrel_Temperature_7 real,Hopper_Temperature real,"
+                           "Mold_Temperature_1 real,Mold_Temperature_2 real, Mold_Temperature_3 real,Mold_Temperature_4 real,Mold_Temperature_5 real,Mold_Temperature_6 real,Mold_Temperature_7 real,Mold_Temperature_8 real,Mold_Temperature_9 real,Mold_Temperature_10 real);");*/
+
+        RemoteDBQuery.exec("if not exists (select * from information_schema.tables where table_name='Shot_data_Rec') create table Shot_data_rec "
+                           "(rec_idx numeric(9),Machine_Name varchar(32),Additional_Info_1 varchar(32),Additional_Info_2 varchar(32),TimeStamp datetime,Shot_Number numeric(9),Inj_Velocity varchar(60),Inj_Pressure varchar(60),Inj_Position varchar(60),"
+                           "SOV_Time real,SOV_Position real,Hld_Pressure varchar(60),Hld_Time varchar(60),Hld_Vel varchar(60),Chg_Position varchar(60),Chg_Speed varchar(60),BackPressure varchar(60),Suckback_Position varchar(60),Suckback_Speed varchar(60),Barrel_Temperature varchar(60),Mold_Temperature varchar(60),Timer varchar(60));");
+
+        /*RemoteDBQuery.exec("create table if not exists Shot_data_rec (rec_idx numeric(9),Machine_Name varchar(32),Additional_Info_1 varchar(32),Additional_Info_2 varchar(32),TimeStamp datetime,Shot_Number numeric(9),Inj_Velocity varchar(60),Inj_Pressure varchar(60),Inj_Position varchar(60),"
+                           "SOV_Time real,SOV_Position real,Hld_Pressure varchar(60),Hld_Time varchar(60),Hld_Vel varchar(60),Chg_Position varchar(60),Chg_Speed varchar(60),BackPressure varchar(60),Suckback_Position varchar(60),Suckback_Speed varchar(60),Barrel_Temperature varchar(60),Mold_Temperature varchar(60),Timer varchar(60));");*/
     }
     catch(QException &e)
     {
@@ -234,7 +280,7 @@ void MainWindow::on_actionStart_triggered()
     {
         fileThread=new FileThread();
         connect(fileThread,SIGNAL(finished()),fileThread,SLOT(deleteLater()));
-        connect(fileThread,SIGNAL(UpdateCommunity(QString,QString)),this,SLOT(UpdateCommunity(QString,QString)));
+        connect(fileThread,SIGNAL(UpdateCommunity(QString,QString)),this,SLOT(UpdateCommunity(QString,QString)));       
         fileThread->FilePath=ui->tableWidget_MachineInfo->item(i,1)->text();
         fileThread->MachineName=ui->tableWidget_MachineInfo->item(i,0)->text();
         FileThreadMap.insert(ui->tableWidget_MachineInfo->item(i,0)->text(),fileThread);

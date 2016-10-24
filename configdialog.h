@@ -17,6 +17,7 @@ class ConfigDialog : public QDialog
 public:
     explicit ConfigDialog(QWidget *parent = 0);
     ~ConfigDialog();
+    Ui::ConfigDialog *ui;
 
     QSqlDatabase LocalDB;
 
@@ -34,7 +35,7 @@ private slots:
     void Retranslator();
 
 private:
-    Ui::ConfigDialog *ui;
+
 };
 
 #endif // CONFIGDIALOG_H
