@@ -79,6 +79,19 @@
     </message>
 </context>
 <context>
+    <name>FileThread</name>
+    <message>
+        <location filename="filethread.cpp" line="49"/>
+        <source>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; Not File&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; 파일 없음&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="filethread.cpp" line="57"/>
+        <source>&lt;p&gt;&lt;img src=:/Img/Img/File.png width=30 height=30 align=middle&gt;File exist&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;&lt;img src=:/Img/Img/File.png width=30 height=30 align=middle&gt;파일 존재&lt;/p&gt;</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="14"/>
@@ -212,40 +225,40 @@
         <translation>상태</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="70"/>
-        <location filename="mainwindow.cpp" line="78"/>
-        <location filename="mainwindow.cpp" line="90"/>
+        <location filename="mainwindow.cpp" line="71"/>
+        <location filename="mainwindow.cpp" line="79"/>
+        <location filename="mainwindow.cpp" line="91"/>
         <source>Warning</source>
         <translation>경고</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="70"/>
-        <location filename="mainwindow.cpp" line="90"/>
+        <location filename="mainwindow.cpp" line="71"/>
+        <location filename="mainwindow.cpp" line="91"/>
         <source>MachineName or Path is empty.</source>
         <translation>기계이름이나 경로가 비어있습니다.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="78"/>
+        <location filename="mainwindow.cpp" line="79"/>
         <source>MachineName is same.</source>
         <translation>같은 기계이름이 있습니다.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="99"/>
+        <location filename="mainwindow.cpp" line="105"/>
         <source>Open Directory</source>
         <translation>디렉토리 열기</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="171"/>
+        <location filename="mainwindow.cpp" line="154"/>
         <source>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; Not File&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; 파일 없음&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="241"/>
+        <location filename="mainwindow.cpp" line="223"/>
         <source>Close Confirmation?</source>
         <translation>프로그램 닫기?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="242"/>
+        <location filename="mainwindow.cpp" line="224"/>
         <source>Are you sure you want to exit?</source>
         <translation>프로그램을 종료하시겠습니까?</translation>
     </message>

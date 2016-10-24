@@ -252,12 +252,16 @@ void MainWindow::on_actionStart_triggered()
 
 void MainWindow::on_actionStop_triggered()
 {
+    QLabel *Label;
     for(int i=0; i<FileThreadMap.size(); i++)
     {
         if(FileThreadMap.value(ui->tableWidget_MachineInfo->item(i,0)->text())->isRunning())
         {
             FileThreadMap.value(ui->tableWidget_MachineInfo->item(i,0)->text())->quit();
         }
+
+        Label=TableWidgetLabelMap.value(ui->tableWidget_MachineInfo->item(i,0)->text());
+        Label->setText(tr("<p><img src=:/Img/Img/NoFile.png width=30 height=30 align=middle> Not File</p>"));
     }
     FileThreadMap.clear();
     fileThread=NULL;
@@ -278,4 +282,9 @@ void MainWindow::UpdateCommunity(QString MachineName,QString Context)
     ui->tableWidget_Community->setItem(ui->tableWidget_Community->rowCount()-1,0,new QTableWidgetItem(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
     ui->tableWidget_Community->setItem(ui->tableWidget_Community->rowCount()-1,2,new QTableWidgetItem(Context));
     ui->tableWidget_Community->resizeColumnsToContents();
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    this->close();
 }
