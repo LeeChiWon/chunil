@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="chunil.qrc">
-    <normaloff>:/Img/Main.png</normaloff>:/Img/Main.png</iconset>
+    <normaloff>:/Img/Img/Main.png</normaloff>:/Img/Img/Main.png</iconset>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">

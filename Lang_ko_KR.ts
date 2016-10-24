@@ -1,77 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ko_KR">
+<TS version="2.0" language="ko_KR">
 <context>
     <name>ConfigDialog</name>
     <message>
         <location filename="configdialog.ui" line="32"/>
         <source>환경설정</source>
-        <translation type="unfinished"></translation>
+        <translation>환경설정</translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="67"/>
         <source>DB주소</source>
-        <translation type="unfinished"></translation>
+        <translation>DB주소</translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="80"/>
         <source>000.000.000.000</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="96"/>
         <source>DB포트</source>
-        <translation type="unfinished"></translation>
+        <translation>DB포트</translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="109"/>
         <source>00000000</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="138"/>
         <source>DB이름</source>
-        <translation type="unfinished"></translation>
+        <translation>DB이름</translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="167"/>
         <source>테이블이름</source>
-        <translation type="unfinished"></translation>
+        <translation>테이블이름</translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="196"/>
         <source>사용자이름</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자이름</translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="225"/>
         <source>암호</source>
-        <translation type="unfinished"></translation>
+        <translation>암호</translation>
     </message>
     <message>
         <location filename="configdialog.ui" line="238"/>
         <source>자동시작</source>
-        <translation type="unfinished"></translation>
+        <translation>자동시작</translation>
     </message>
     <message>
-        <location filename="configdialog.cpp" line="28"/>
+        <location filename="configdialog.cpp" line="29"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>경고</translation>
     </message>
     <message>
-        <location filename="configdialog.cpp" line="28"/>
+        <location filename="configdialog.cpp" line="29"/>
         <source>Setting is empty.</source>
-        <translation type="unfinished"></translation>
+        <translation>설정부분이 비어있습니다.</translation>
     </message>
     <message>
-        <location filename="configdialog.cpp" line="45"/>
+        <location filename="configdialog.cpp" line="46"/>
         <source>Info</source>
-        <translation type="unfinished"></translation>
+        <translation>정보</translation>
     </message>
     <message>
-        <location filename="configdialog.cpp" line="45"/>
+        <location filename="configdialog.cpp" line="46"/>
         <source>Setting Saved.</source>
-        <translation type="unfinished"></translation>
+        <translation>설정이 저장되었습니다.</translation>
+    </message>
+    <message>
+        <source>Not File</source>
+        <translation>파일 없음</translation>
     </message>
 </context>
 <context>
@@ -79,128 +83,171 @@
     <message>
         <location filename="mainwindow.ui" line="14"/>
         <source>천일엔지니어링</source>
-        <translation type="unfinished"></translation>
+        <translation>천일엔지니어링</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="76"/>
+        <location filename="mainwindow.ui" line="83"/>
         <source>기계이름</source>
-        <translation type="unfinished"></translation>
+        <translation>기계이름</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="86"/>
+        <location filename="mainwindow.ui" line="93"/>
         <source>경로</source>
-        <translation type="unfinished"></translation>
+        <translation>경로</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="109"/>
+        <location filename="mainwindow.ui" line="116"/>
         <source>추가</source>
-        <translation type="unfinished"></translation>
+        <translation>추가</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="135"/>
+        <location filename="mainwindow.ui" line="142"/>
         <source>삭제</source>
-        <translation type="unfinished"></translation>
+        <translation>삭제</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="190"/>
+        <location filename="mainwindow.ui" line="197"/>
         <source>메뉴</source>
-        <translation type="unfinished"></translation>
+        <translation>메뉴</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="194"/>
+        <location filename="mainwindow.ui" line="201"/>
         <source>언어선택</source>
-        <translation type="unfinished"></translation>
+        <translation>언어선택</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="219"/>
+        <location filename="mainwindow.ui" line="226"/>
         <source>시작</source>
-        <translation type="unfinished"></translation>
+        <translation>시작</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="222"/>
+        <location filename="mainwindow.ui" line="229"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="230"/>
+        <location filename="mainwindow.ui" line="237"/>
         <source>정지</source>
-        <translation type="unfinished"></translation>
+        <translation>정지</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="233"/>
+        <location filename="mainwindow.ui" line="240"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="238"/>
+        <location filename="mainwindow.ui" line="245"/>
         <source>환경설정</source>
-        <translation type="unfinished"></translation>
+        <translation>환경설정</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="241"/>
+        <location filename="mainwindow.ui" line="248"/>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="246"/>
+        <location filename="mainwindow.ui" line="253"/>
         <source>종료</source>
-        <translation type="unfinished"></translation>
+        <translation>종료</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="249"/>
+        <location filename="mainwindow.ui" line="256"/>
         <source>Ctrl+X</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="254"/>
+        <location filename="mainwindow.ui" line="261"/>
         <source>한국어</source>
-        <translation type="unfinished"></translation>
+        <translation>한국어</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="257"/>
+        <location filename="mainwindow.ui" line="264"/>
         <source>Ctrl+K</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="262"/>
+        <location filename="mainwindow.ui" line="269"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation>English</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="265"/>
+        <location filename="mainwindow.ui" line="272"/>
         <source>Ctrl+E</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="270"/>
+        <location filename="mainwindow.ui" line="277"/>
         <source>español </source>
-        <translation type="unfinished"></translation>
+        <translation>español</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="273"/>
+        <location filename="mainwindow.ui" line="280"/>
         <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="25"/>
         <source>DateTime</source>
-        <translation type="unfinished"></translation>
+        <translation>날짜</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="25"/>
         <location filename="mainwindow.cpp" line="26"/>
         <source>MachineName</source>
-        <translation type="unfinished"></translation>
+        <translation>기계이름</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="25"/>
         <source>Context</source>
-        <translation type="unfinished"></translation>
+        <translation>내용</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="26"/>
         <source>DirectoryPath</source>
-        <translation type="unfinished"></translation>
+        <translation>경로</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="26"/>
+        <source>Status</source>
+        <translation>상태</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="70"/>
+        <location filename="mainwindow.cpp" line="78"/>
+        <location filename="mainwindow.cpp" line="90"/>
+        <source>Warning</source>
+        <translation>경고</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="70"/>
+        <location filename="mainwindow.cpp" line="90"/>
+        <source>MachineName or Path is empty.</source>
+        <translation>기계이름이나 경로가 비어있습니다.</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="78"/>
+        <source>MachineName is same.</source>
+        <translation>같은 기계이름이 있습니다.</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="99"/>
+        <source>Open Directory</source>
+        <translation>디렉토리 열기</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="171"/>
+        <source>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; Not File&lt;/p&gt;</source>
+        <translation>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; 파일 없음&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="241"/>
+        <source>Close Confirmation?</source>
+        <translation>프로그램 닫기?</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="242"/>
+        <source>Are you sure you want to exit?</source>
+        <translation>프로그램을 종료하시겠습니까?</translation>
     </message>
 </context>
 </TS>

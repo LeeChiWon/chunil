@@ -27,6 +27,7 @@ signals:
     void LocalDBInit();
     void AutoStart();
     void LanguageChanged(int LanguageSelect);
+    void TableWidgetAdd(QString MachineName,QString Path);
 
 private slots:
     void on_buttonBox_clicked(QAbstractButton *button);
