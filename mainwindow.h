@@ -55,6 +55,8 @@ private slots:
     void on_actionStop_triggered();
     void UpdateCommunity(QString MachineName,QString Context);
 
+    void on_actionExit_triggered();
+
 private:
 
 };

@@ -79,6 +79,19 @@
     </message>
 </context>
 <context>
+    <name>FileThread</name>
+    <message>
+        <location filename="filethread.cpp" line="49"/>
+        <source>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; Not File&lt;/p&gt;</source>
+        <translation>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; no Declararán&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="filethread.cpp" line="57"/>
+        <source>&lt;p&gt;&lt;img src=:/Img/Img/File.png width=30 height=30 align=middle&gt;File exist&lt;/p&gt;</source>
+        <translation>&lt;p&gt;&lt;img src=:/Img/Img/File.png width=30 height=30 align=middle&gt;El archivo existe&lt;/p&gt;</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="14"/>
@@ -212,40 +225,40 @@
         <translation>Estado</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="70"/>
-        <location filename="mainwindow.cpp" line="78"/>
-        <location filename="mainwindow.cpp" line="90"/>
+        <location filename="mainwindow.cpp" line="71"/>
+        <location filename="mainwindow.cpp" line="79"/>
+        <location filename="mainwindow.cpp" line="91"/>
         <source>Warning</source>
         <translation>Advertencia</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="70"/>
-        <location filename="mainwindow.cpp" line="90"/>
+        <location filename="mainwindow.cpp" line="71"/>
+        <location filename="mainwindow.cpp" line="91"/>
         <source>MachineName or Path is empty.</source>
         <translation>Máquina nombre o la ruta está vacía.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="78"/>
+        <location filename="mainwindow.cpp" line="79"/>
         <source>MachineName is same.</source>
         <translation>Nombre de la máquina es el mismo.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="99"/>
+        <location filename="mainwindow.cpp" line="105"/>
         <source>Open Directory</source>
         <translation>Directorio abierto</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="171"/>
+        <location filename="mainwindow.cpp" line="154"/>
         <source>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; Not File&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;img src=:/Img/Img/NoFile.png width=30 height=30 align=middle&gt; no Declararán&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="241"/>
+        <location filename="mainwindow.cpp" line="223"/>
         <source>Close Confirmation?</source>
         <translation>Cerrar la Confirmación?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="242"/>
+        <location filename="mainwindow.cpp" line="224"/>
         <source>Are you sure you want to exit?</source>
         <translation>¿Seguro que quieres salir?</translation>
     </message>
