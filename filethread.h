@@ -22,9 +22,10 @@ public:
     QDateTime FileModifyDateTime;
     QSqlDatabase RemoteDB;
 
-    void FileRead();
+    void FileRead(QString FileName);
     void RemoteDBSet();
-    void DBSave(QStringList Context);
+    void DBSave(QStringList Context,int Select);
+    void FileInfoChanaged(QString FileName);
 
 signals:
     void UpdateCommunity(QString MachineName,QString Context);    
