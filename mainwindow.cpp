@@ -103,6 +103,9 @@ void MainWindow::RemoteDBInit()
 
         /*RemoteDBQuery.exec("create table if not exists Shot_data_rec (rec_idx numeric(9),Machine_Name varchar(32),Additional_Info_1 varchar(32),Additional_Info_2 varchar(32),TimeStamp datetime,Shot_Number numeric(9),Inj_Velocity varchar(60),Inj_Pressure varchar(60),Inj_Position varchar(60),"
                            "SOV_Time real,SOV_Position real,Hld_Pressure varchar(60),Hld_Time varchar(60),Hld_Vel varchar(60),Chg_Position varchar(60),Chg_Speed varchar(60),BackPressure varchar(60),Suckback_Position varchar(60),Suckback_Speed varchar(60),Barrel_Temperature varchar(60),Mold_Temperature varchar(60),Timer varchar(60));");*/
+
+       /* RemoteDBQuery.exec("if not exists (select * from information_schema.tables where table_name='Alarm_data') create table Alarm_data "
+                           "(idx numeric(9) identity(1,1) not null primary key,Machine_Name,);");*/
     }
     catch(QException &e)
     {
